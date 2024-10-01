@@ -1,0 +1,862 @@
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+using namespace std;
+class UserLogin
+{
+	public:
+		string name , email , userid , password ;
+		int mobileno ;
+		
+		string company , model , regisnum , vehiclenum ;
+	     void registration()
+	     {
+	     	system("color A");
+			cout<<"___________________________________________________________________________________________________________"<<endl<<endl;
+			cout<<"<<                                      *  CAR RENTAL SYSTEM  *                                          >>"<<endl;
+	     	cout<<"______________________________________________________________"<<endl;
+	     	cout<<"                           SIGN-UP                            "<<endl;
+	     	cout<<" * Enter Your Name :"<<endl;
+	     	cin>>name;
+	     	cout<<" * Enter Mobile Number :"<<endl;
+	     	cin>>mobileno;
+	     	cout<<" * Enter E-Mail ID :"<<endl;
+	     	cin>>email;
+	     	cout<<" * Enter User ID : "<<endl;
+	     	cin>>userid;
+	     	cout<<" * Enter Password :"<<endl;
+	     	cin>>password;
+	     	cout<<"User Registered Succesfully !!!"<<endl;
+	     	LoGin();
+		 }
+		 
+		 void LoGin()
+		 {
+		 	system("color 2");
+		 	int Userid ;
+		 	string Password ;
+		 	cout<<"__________________________________________________________________"<<endl;
+		 	cout<<"-------------------------LOGIN------------------------------------"<<endl;
+		 	cout<<"* Enter User ID :"<<endl;
+		 	cin>>Userid ;
+		 	cout<<"* Enter Password :"<<endl;
+		 	cin>>Password;
+		 	if(Userid==1234 && Password=="navnath8")
+		 	{
+		 		cout<<"Logged In Successfully !!!"<<endl;
+			}
+			else 
+			{
+				system("color 4");
+				cout<<"Login Error !  Please Enter Valid UserID and Password ..."<<endl;
+				//sleep(2000);
+				system("color A");
+			}
+		 }
+};
+
+class Admin
+{
+	public:
+		string company , model , regisnum , vehiclenum ;
+		int a;
+		
+		void AdminRegister()
+		{
+			string Name , AdminID , password ;
+			int contact ;
+			system("color A");
+			cout<<"\t________________________________________________________________________________"<<endl;
+			cout<<"\t--------------------------------------------------------------------------------"<<endl;
+			cout<<"\t<                             * ADMIN PAGE*                                     "<<endl;
+			cout<<"_____________________________________________________________________________"<<endl;
+			cout<<"-----------------------------------------------------------------------------"<<endl;
+			cout<<"<                                   Registration                            >"<<endl;
+			cout<<"* Enter Admin Name :"<<endl;
+			cin>>Name;
+			cout<<"* Enter Contact Number :"<<endl;
+			cin>>contact;
+			cout<<"* Enter AdminID :"<<endl;
+			cin>>AdminID;
+			cout<<"* Enter Password :"<<endl;
+			cin>>password;
+			cout<<"Admin Registration Successful !!!"<<endl<<endl;
+			adminLogin();
+		}
+		
+		void adminLogin()
+		{
+			int id , choice; 
+			string password ;
+			system("color A");
+			up:
+			cout<<"\t________________________________________________________________________________"<<endl;
+			cout<<"\t--------------------------------------------------------------------------------"<<endl;
+			cout<<"\t<                             * ADMIN PAGE*                                     "<<endl;
+			cout<<"\t___________________________________________________________________________"<<endl;
+			dop:
+			cout<<"\t---------------------------------------------------------------------------"<<endl;
+			cout<<"\t<                                 * Login *                                >"<<endl;
+			cout<<"*  Enter Admin Id :";
+			cin>>id;
+			cout<<"*  Enter Password :";
+			cin>>password;
+			if(id==12345 && password=="navnath")
+			{
+				cout<<"Admin login successfully !!!"<<endl;
+			}
+			else 
+			{
+				cout<<"Error !  Admin Login failed ...."<<endl;
+				cout<<"Please , check ID and Password ..."<<endl;
+				goto dop;
+			}
+			
+			cout<<"*______*________*________*_______*_______*________*______"<<endl;
+			cout<<"Press 1 to Add new car "<<endl;
+			cout<<"Press 2 for remove car"<<endl;
+			cout<<"Press 3 to exit "<<endl;
+			cout<<"Enter Your Choice :"<<endl;
+			cin>>choice;
+			switch(choice)
+			{
+				case 1 :
+								
+								cout<<"\t__________________________________________________________________"<<endl;
+								cout<<"\t_______________________ADD NEW CAR________________________________"<<endl;
+							
+						
+			
+								cout<<"* Enter Company Name :"<<endl;
+								cin>>company;
+								cout<<"* Enter Model Name :"<<endl;
+								cin>>model;
+								cout<<"* Enter Registration Number :"<<endl;
+								cin>>regisnum;
+								cout<<"* Enter Vehicle Number :"<<endl;
+								cin>>vehiclenum;
+								cout<<"\t\t New Car Added to Database Successfully !!!"<<endl;
+									cout<<"If you want to explore more option then press 1";
+								cin>>a;
+								if(a==1)
+								{
+									goto up;
+								}
+								
+						
+				break ;
+				case 2 :
+							
+						
+							
+							cout<<"\t______________________________________________________________________"<<endl;
+							cout<<"\t_______________________REMOVE EXISTING CAR____________________________"<<endl;
+							cout<<"* Enter Company Name :"<<endl;
+							cin>>company;
+							cout<<"* Enter Model Name :"<<endl;
+							cin>>model;
+							cout<<"* Enter Vehicle Number :"<<endl;
+							cin>>vehiclenum;
+							cout<<"Successful !!!"<<endl;
+							cout<<"Car Removed from the database......"<<endl;
+							cout<<"Press 1 To Go Back : ";
+							cin>>a;
+							if(a==1)
+							{
+								goto up;
+							}
+							
+							
+							
+				break ;
+				case 3 :
+					exit(0);
+				break ;
+				default:
+					cout<<"Error ! Enter valid Choice ...."<<endl;
+			}
+			
+		}
+	
+};
+
+class RentalBooking
+{
+    public:
+		void domestic()
+		{
+			int choice , amount ;
+			system("color A");
+			cout<<"\t_____________________________________________________________________________________"<<endl;
+    		cout<<"\t                                *  Inventory  *                                      "<<endl;
+			cout<<"<_________________________________________________________________________"<<endl;
+			cout<<"                    Domestic Brands Available Cars                        "<<endl<<endl;
+			
+			cout<<"NO    \t   company Name       \t    Model Name     \t    Vehicle No.    \t    Rent/day  "<<endl<<endl;
+			
+			cout<<"1     \t     Honda            \t      Civic       \t     MH12BE2433    \t     $3400    "<<endl;
+			cout<<"2     \t     Renault          \t      Duster      \t     MH14GH5478    \t     $4000    "<<endl;
+			cout<<"3     \t     Maruti Suzuki    \t      Eartiga     \t     MH14UY6487    \t     $3500    "<<endl;
+			cout<<"4     \t     Toyota           \t      Fortuner    \t     MH09RT7000    \t     $6000    "<<endl;
+			cout<<"5     \t     Kia              \t      Seltos      \t     MH15FD5467    \t     $5000    "<<endl;
+			cout<<"6     \t     MG               \t      Hector      \t     MH17BF9087    \t     $4570    "<<endl;
+			cout<<"7     \t     TATA             \t      Safari      \t     MH09BE2558    \t     $6000    "<<endl;
+			cout<<"8     \t     Skoda            \t      Rapid       \t     KA12HG7568    \t     $3300    "<<endl;
+			cout<<"9     \t     Mahindra         \t      Scorpio N   \t     MH09KW2345    \t     $6500    "<<endl;
+			cout<<"10    \t     Honda            \t      City        \t     MH09DH4356    \t     $3500    "<<endl;
+			cout<<"11    \t     TATA             \t      Harrier     \t     MH67HG8477    \t     $6700    "<<endl;
+			cout<<"12    \t     Mahindra         \t      XUV 700     \t     MH09KS3456    \t     $5000    "<<endl;
+			cout<<"13    \t     Kia              \t      Sonet       \t     MH14UI3654    \t     $4300    "<<endl;
+			cout<<"14    \t     Maruti Suzuki    \t      Grand Vitara\t     MH12LH7365    \t     $5600    "<<endl;
+			cout<<"15    \t     Mahindra         \t      Thar        \t     MH09RT1234    \t     $6700    "<<endl;
+			cout<<"16    \t     Ford             \t      indeavour   \t     MH08ER3218    \t     $8000    "<<endl;
+			
+			cout<<" --------Bookings--------"<<endl;
+			cout<<"Enter the number of the Domestic car you want to book :";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1 :
+					if(choice==1)
+					{
+						cout<<"Honda Civic added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==3400)
+						{
+							cout<<"Honda Civic Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+				break ;
+				case 2 :
+					if(choice==2)
+					{
+						cout<<"Renault Duster added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==4000)
+						{
+							cout<<"Renault duster Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 3 :
+						if(choice==3)
+					{
+						cout<<"Maruti Eartiga added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==3500)
+						{
+							cout<<"Maruti Eartiga Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 4 : 
+						if(choice==4)
+					{
+						cout<<"Toyota Fortuner added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==6000)
+						{
+							cout<<"Toyota Fortuner Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 5:
+						if(choice==5)
+					{
+						cout<<"Kia Seltos added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==5000)
+						{
+							cout<<"kia Seltos Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 6:
+						if(choice==6)
+					{
+						cout<<"MG Hector added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==4570)
+						{
+							cout<<"MG Hector Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 7 :
+						if(choice==7)
+					{
+						cout<<"Tata Safari added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==6000)
+						{
+							cout<<"Tata Safari Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 8 :
+						if(choice==8)
+					{
+						cout<<"Skoda Rapid added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==3300)
+						{
+							cout<<"Skoda Rapid Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}	
+					break ;
+					case 9 :
+						if(choice==9)
+					{
+						cout<<"Mahindra Scorpio N added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==6500)
+						{
+							cout<<"Mahindra Scorpio N Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 10 :
+						if(choice==10)
+					{
+						cout<<"Honda City added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==3500)
+						{
+							cout<<"Honda City Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 11:
+						if(choice==11)
+					{
+						cout<<"TATA Harrier added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==6700)
+						{
+							cout<<"TATA Harrier Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 12 :
+						if(choice==12)
+					{
+						cout<<"Mahindra XUV 700 added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==5000)
+						{
+							cout<<"Mahindra XUV 700 Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 13 :
+						if(choice==13)
+					{
+						cout<<"Kia Sonet added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==4300)
+						{
+							cout<<"kia Sonet Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					case 14 :
+						if(choice==14)
+					{
+						cout<<"Maruti Grand Vitara added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==5600)
+						{
+							cout<<"Maruti Grand Vitara Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}	
+					break ;
+					case 15:
+						if(choice==15)
+					{
+						cout<<"Mahindra Thar  added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==6700)
+						{
+							cout<<"Mahindra Thar Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}	
+					break ;
+					case 16 :
+						if(choice==16)
+					{
+						cout<<"Ford Indeavour added to Bookings !"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==8000)
+						{
+							cout<<"Ford Indeavour Booked Successfully !! "<<endl;
+						}
+						else 
+						{
+							cout<<"Error  ! Enter Valid Amount ..."<<endl;
+						}
+					}
+					break ;
+					default :
+						cout<<"Error ! Enter Valid Choice ....."<<endl;																										
+			}	
+		}
+		
+		void premium()
+		{
+			int choice , amount ;
+			system("color A");
+			cout<<"\t_____________________________________________________________________________________"<<endl;
+    		cout<<"\t                                *  Inventory  *                                      "<<endl;
+			cout<<"<_________________________________________________________________________"<<endl;
+			cout<<"                    Premium Brands Available Cars                        "<<endl<<endl;
+			
+			cout<<"NO    \t   company Name       \t    Model Name     \t    Vehicle No.    \t    Rent/day  "<<endl<<endl;
+			
+			cout<<"1     \t    LandRover         \t    Defender       \t    MH12TY6540     \t     $10000   "<<endl;
+			cout<<"2     \t    Mercedes-Benz     \t    Limousine      \t    MH13IO8000     \t     $23000   "<<endl;
+			cout<<"3     \t    Audi              \t    E-Tron         \t    MH12WR2300     \t     $30000   "<<endl;
+			cout<<"4     \t    BMW               \t    2 Series       \t    MH09TR1232     \t     $40000   "<<endl;
+			cout<<"5     \t    Land Rover        \t    Range Rover    \t    MH14YR9000     \t     $45000   "<<endl;
+			cout<<"6     \t    Toyota            \t    Camry          \t    MH08RT5497     \t     $25000   "<<endl;
+			cout<<"7     \t    Jeep              \t    Wrangler       \t    MH56ER0987     \t     $30000   "<<endl<<endl;
+			cout<<" --------Bookings--------"<<endl;
+			cout<<"Enter the number of the Premium car you want to book :";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1 :
+					if(choice==1)
+					{
+						cout<<"LandRover Defender Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==10000)
+						{
+							cout<<"LandRover Defender Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 2 :
+					if(choice==2)
+					{
+						cout<<"Mercedes-Benz Limosine Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==23000)
+						{
+							cout<<"Mercedes-Benz Limosine Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 3 :
+					if(choice==3)
+					{
+						cout<<"Audi E-Tron Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==30000)
+						{
+							cout<<"Audi E-Tron Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 4 :
+					if(choice==4)
+					{
+						cout<<"BMW 2 Series Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==40000)
+						{
+							cout<<"BMW 2 Series Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 5:
+					if(choice==5)
+					{
+						cout<<"LandRover RangeRover Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==45000)
+						{
+							cout<<"LandRover RangeRover Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 6:
+					if(choice==6)
+					{
+						cout<<"Toyota Camry Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==25000)
+						{
+							cout<<"Toyota Camry Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				case 7:
+					if(choice==7)
+					{
+						cout<<" Jeep Wrangler Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==30000)
+						{
+							cout<<"Jeep Wrangler Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				break ;
+				default :
+					cout<<"Error ! Please Enter Valid Amount ..."<<endl;
+			}
+		}
+		
+		void luxury()
+		{
+			int choice , amount ;
+			system("color A");
+			cout<<"\t_____________________________________________________________________________________"<<endl;
+    		cout<<"\t                                *  Inventory  *                                      "<<endl;
+			cout<<"<_________________________________________________________________________"<<endl;
+			cout<<"                    Luxury Brands Available Cars                        "<<endl<<endl;
+			
+			cout<<"NO    \t   company Name       \t    Model Name     \t    Vehicle No.    \t    Rent/day  "<<endl<<endl;
+			
+			cout<<"1     \t   Toyota             \t     Supra         \t    MH12JH5647     \t    $68000    "<<endl;
+			cout<<"2     \t   Mercedes-Benz      \t     G-Wagon       \t    MH08WE4444     \t    $80000    "<<endl;
+			cout<<"3     \t   Lamborghini        \t     Aventador     \t    MH14HJ1111     \t    $100000   "<<endl;
+			cout<<"4     \t   Aston Martin       \t     DB11          \t    MH12PO3331     \t    $120000   "<<endl;
+			cout<<"5     \t   Rolls-Royce        \t     Phantom       \t    MH09FD4000     \t    $150000   "<<endl;
+			cout<<"6     \t   Tesla              \t     Model S       \t    MH09ER3400     \t    $110000   "<<endl;
+			cout<<"7     \t   Ferrari            \t     812 Superfast \t    MH08WR1111     \t    $90000    "<<endl;
+			cout<<"8     \t   Jaguar             \t     I-PACE        \t    MH04LY1000     \t    $130000   "<<endl<<endl;
+			cout<<" --------Bookings--------"<<endl;
+			cout<<"Enter the number of the Luxury car you want to book :";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1 :
+					if(choice==1)
+					{
+						cout<<" Toyota Supra Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==68000)
+						{
+							cout<<"Toyota Supra Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				case 2 :
+					if(choice==2)
+					{
+						cout<<" Mercedes-Benz G-Wagon Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==80000)
+						{
+							cout<<"Mercedes-Benz G-Wagon Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				case 3 :
+					if(choice==3)
+					{
+						cout<<" Lamborghini Aventador Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==100000)
+						{
+							cout<<"Lamborghini Aventador Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				case 4 :
+					if(choice==4)
+					{
+						cout<<" Aston Martin DB11 Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==120000)
+						{
+							cout<<"Aston Martin DB11 Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+					case 5 :
+					if(choice==5)
+					{
+						cout<<" Rolls Royce Phantom Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==150000)
+						{
+							cout<<"Rolls Royce Phantom  Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				case 6 :
+					if(choice==6)
+					{
+						cout<<" Tesla Model S Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==110000)
+						{
+							cout<<"Tesla Model S Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+					case 7 :
+					if(choice==7)
+					{
+						cout<<" Ferrari 812 Superfast Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==90000)
+						{
+							cout<<"Ferrari 812 Superfast Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+				case 8 :
+					if(choice==8)
+					{
+						cout<<" Jaguar I-PACE Added to bookings !!"<<endl;
+						cout<<"-----Payment Gateway-----"<<endl;
+						cout<<"Enter Amount and pay : "<<endl;
+						cin>>amount;
+						if(amount==130000)
+						{
+							cout<<"Jaguar I-PACE  Booked succesfully !"<<endl;
+						}
+						else 
+						{
+							cout<<"Error ! Enter Valid Choice ..."<<endl;
+						}	
+					}
+					default :
+						if(choice>8)
+						{
+							cout<<"Error ! Please Enter Valid Choice ..."<<endl;
+						}
+			}
+		}
+    	
+			
+};	
+
+int main()
+{
+	UserLogin U;
+	UserLogin U2;
+	Admin A;
+	Admin A2;
+	RentalBooking R;
+	RentalBooking R2;
+	RentalBooking R3;
+	int choice ;
+	cout<<"\t_____________________________________________________________________________________________________"<<endl;
+	cout<<"\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+	cout<<"\t_____________________________________________________________________________________________________"<<endl;
+	cout<<"\t*                                          CAR RENTAL SYSTEM                                         "<<endl;
+	cout<<"\t_____________________________________________________________________________________________________"<<endl;
+	cout<<"\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+	cout<<"\t_____________________________________________________________________________________________________"<<endl<<endl;
+	cout<<"* Press 1 For User Signup"<<endl;
+	cout<<"* Press 2 For User Login "<<endl;
+	cout<<"* Press 3 For Admin Signup"<<endl;
+	cout<<"* Press 4 For Admin Login"<<endl;
+	cout<<"* Press 5 For Domestic Car Booking "<<endl;
+	cout<<"* Press 6 For Premium Car Booking "<<endl;
+	cout<<"* Press 7 For Luxury Car Booking "<<endl;
+	cout<<"* press 8 For Exit"<<endl<<endl;
+	cout<<">>>>>>> Enter Your Choice :"<<endl;
+	cin>>choice;
+	switch(choice)
+	{
+		case 1 :
+			U.registration();
+		break ;
+		case 2 :
+			U2.LoGin();
+		break ;
+		case 3:
+			A.AdminRegister();
+		break ;
+		case 4:
+			A2.adminLogin();
+		break ;
+		case 5:
+			R.domestic();
+		break ;
+		case 6:
+			R2.premium();
+		break ;
+		case 7:
+			R3.luxury();
+		break ;
+		default :
+			 if(choice>8)
+			 {
+			 	cout<<"Invalid Choice !!! please Enter Valid Choice ....."<<endl;
+			 }
+	}
+}
